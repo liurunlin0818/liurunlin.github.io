@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runlin Liu - Personal Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #003366;
+        }
+        .profile-img {
+            width: 200px;        
+            height: 200px;       
+            border-radius: 50%;  
+            object-fit: cover;   
+            margin-bottom: 1rem; 
+            border: 4px solid #003366; 
+        }
+        h1 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+        .contact {
+            margin: 1rem 0;
+            color: #666;
+        }
+        .contact a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #003366;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .skill-category {
+            background: #f0f5ff;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        .skill-category h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .experience-item, .education-item {
+            margin-bottom: 1.5rem;
+        }
+        .experience-header, .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .position, .degree {
+            font-weight: bold;
+            color: #003366;
+        }
+        .company, .institution {
+            color: #666;
+        }
+        .date {
+            color: #888;
+            font-style: italic;
+        }
+        ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .extra-activities, .interests {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部区域：包含头像、姓名、联系方式 -->
+        <header>
+            <!-- 替换为你的本地照片路径（已转换为浏览器支持的正斜杠） -->
+            <img 
+                src="nanjing_buddha.jpg" 
+                alt="Runlin Liu" 
+                class="profile-img"
+            >  
+            <h1>LIU, Runlin</h1>
+            <div class="contact">
+                <p>Mobile: (+65) 82983562, (+86) 17327790910</p>
+                <p>Email: <a href="mailto:liur0039@e.ntu.edu.sg">liur0039@e.ntu.edu.sg</a>, <a href="mailto:liurunlin0818@outlook.com">liurunlin0818@outlook.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/runlin-liu-21786b377" target="_blank">https://www.linkedin.com/in/runlin-liu-21786b377</a></p>
+                <p>Languages: English (Business), German (Business), Mandarin (Native)</p>
+            </div>
+        </header>
+
+        <!-- 个人简介 -->
+        <section class="section">
+            <h2>SUMMARY</h2>
+            <ul>
+                <li>Skilled in machine learning, text mining, and financial research, integrating technical and cross-cultural insights for actionable solutions.</li>
+                <li>Multilingual in Mandarin, English, and German: enabling cross-cultural data projects and multilingual datasets insights.</li>
+                <li>Proven leader: led 90% of university group projects (strategy, task allocation, presentations) with strong coordination and results focus.</li>
+            </ul>
+        </section>
+
+        <!-- 技能板块 -->
+        <section class="section">
+            <h2>SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <p>Machine learning, deep learning, data mining, natural language processing</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Analytical Abilities</h3>
+                    <p>Corporate analysis, industry research, strategic insight extraction, financial analysis</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools Proficiency</h3>
+                    <p>R, Python, Microsoft Packages, MySQL, Tableau, HTML</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <p>Leadership, cross-cultural communication</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工作经历 -->
+        <section class="section">
+            <h2>PROFESSIONAL EXPERIENCE</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="position">Vehicle Industry Analyst</div>
+                        <div class="company">Soochow Securities, Shanghai, China</div>
+                    </div>
+                    <div class="date">2024/06 - 2024/09</div>
+                </div>
+                <ul>
+                    <li>Oversaw quarterly maintenance of passenger vehicle production/sales databases, enhancing cross-enterprise tracking accuracy by 25%; Monitored domestic NEVs in real time, aggregated multi-source data for daily briefs, accelerating actionable market signal extraction by 30%.</li>
+                    <li>Authored 75% of quarterly reviews (covering 85% of key automakers) and contributed to 60% of in-depth reports, enhancing industry tracking comprehensiveness.</li>
+                    <li>Applied time-series models (ARIMA via Python) to 1980s Japanese automakers’ data, quantifying merger efficacy (e.g., 15% ROI lift post-local production) and informing team’s NEV export strategy for Southeast Asia.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="position">Investment Assistant</div>
+                        <div class="company">Shanghai Jun-xi Investment Management, Shanghai, China</div>
+                    </div>
+                    <div class="date">2024/01 - 2024/03</div>
+                </div>
+                <ul>
+                    <li>Monitored financial disclosures via text mining: Identified a 47% YoY increase in negative expressions and 85% rise in strong negative vocabulary frequency for a company in 2023; generated risk warning reports to flag default risks, with validity validated 3 months later.</li>
+                    <li>Consolidated 5 historical phases of China’s financial system development, including 95% of core policies since 1997, and formed foundational framework for 75% of team’s policy analysis reports through systematic integration of policy evolution.</li>
+                    <li>Leveraged web scraping to extract industry tags, technical indicators, and financial data, covering 100% of China’s A-share listed companies (as of pre-2024 Chinese New Year), boosting robustness of company’s proprietary stock-selection model by 30%.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="position">Industry Research Assistant</div>
+                        <div class="company">Orient Securities, Shanghai, China</div>
+                    </div>
+                    <div class="date">2023/09 - 2024/01</div>
+                </div>
+                <ul>
+                    <li>Tracked movements of leaders across 30+ provincial-level regions and 10+ key overseas economies weekly; filtered 15+ actionable insights, excluding low-value routine meetings, increasing team's strategy interpretation efficiency by 20%.</li>
+                    <li>Studied 5 weekly articles from leading think tanks (RAND, CSIS, etc.) on geopolitics/tech/resources; over 5 months, synthesised 80+ core viewpoints and 40+ keywords, serving as a critical input for team's weekly strategy briefings.</li>
+                    <li>Streamlined MySQL database for macroeconomic data, reducing team’s data retrieval time by 40% through optimised query structures.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 课外活动 -->
+        <section class="section">
+            <h2>EXTRA-CURRICULAR ACTIVITIES</h2>
+            <div class="extra-activities">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="position">Business Development Manager</div>
+                            <div class="company">College Students' Innovative Entrepreneurial Training Program, Nanjing, China</div>
+                        </div>
+                        <div class="date">2021/09 - 2023/11</div>
+                    </div>
+                    <ul>
+                        <li>Led a team in researching ESG communication strategy differences between Sino-German automakers, applying 3 machine learning methods to 1000+ multilingual texts, quantifying ESG communication gaps between Sino-German automakers.</li>
+                        <li>Spearheaded research design for a 6-member team; reviewed 40+ ESG reports and 1000+ multilingual texts, driving project to National-Level Outstanding (top 5% of national college innovation projects).</li>
+                        <li>Authored and published a paper on findings, demonstrating proficiency in data-driven analysis and cross-lingual research leadership.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section class="section">
+            <h2>EDUCATION</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="degree">MSc Business Analytics</div>
+                        <div class="institution">Nanyang Business School, Nanyang Technological University, Singapore</div>
+                    </div>
+                    <div class="date">2025/07 - 2026/5 (expected)</div>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="degree">Bachelor of Economics (Finance)</div>
+                        <div class="institution">Nanjing University Business School, Nanjing University, China</div>
+                    </div>
+                    <div class="date">2021/09 - 2025/06</div>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="degree">Bachelor of Arts (German)</div>
+                        <div class="institution">School of Foreign Studies, Nanjing University, China</div>
+                    </div>
+                    <div class="date">2021/09 - 2025/06</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 兴趣爱好 -->
+        <section class="section">
+            <h2>INTERESTS</h2>
+            <div class="interests">
+                <ul>
+                    <li>Enjoy learning new things through online courses: a collection of 80+ courses spanning from history to AI, taken non-utilitarianly.</li>
+                    <li>Engage in E-Sports with teammates: a great way to keep self-confident and develop team communication, and problem-solving skills.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
