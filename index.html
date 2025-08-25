@@ -427,7 +427,7 @@
 
         <div class="project-item cn-content">
             <div class="item-header">
-                <div class="item-title">国家级大学生创新训练项目 | 南京大学 | 学院项目负责人</div>
+                <div class="item-title">国家级大学生创新训练项目 | 南京大学 | 外国语学院项目负责人</div>
                 <div class="item-date">2021.09 - 2023.11</div>
             </div>
             <div class="item-subtitle">项目成果：国家级优秀结项（全国前5%）、发表学术论文</div>
@@ -492,17 +492,14 @@
     </section>
 
     <script>
-        // 中英文切换功能：通过toggle('.hide')实现显示/隐藏
         function toggleLanguage() {
             const cnContents = document.querySelectorAll('.cn-content');
             const enContents = document.querySelectorAll('.en-content');
             const switchBtn = document.querySelector('.lang-switch');
             
-            // 切换所有中英文内容的显示状态
             cnContents.forEach(el => el.classList.toggle('hide'));
             enContents.forEach(el => el.classList.toggle('hide'));
             
-            // 更新按钮文本
             if (switchBtn.textContent === '切换英文') {
                 switchBtn.textContent = 'Switch to Chinese';
             } else {
@@ -510,7 +507,6 @@
             }
         }
 
-        // 平滑滚动（导航栏点击跳转）
         document.querySelectorAll('.nav-links a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
