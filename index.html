@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘润林 - 个人简历</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+        /* 导航栏样式 */
+        .navbar {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+        .lang-switch, .download-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .lang-switch:hover, .download-btn:hover {
+            background-color: #2980b9;
+        }
+        /* 个人信息区域 */
+        .profile-section {
+            width: 80%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3498db;
+        }
+        .profile-info h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .profile-info .job-title {
+            font-size: 18px;
+            color: #3498db;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .contact-list li a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-list li a:hover {
+            text-decoration: underline;
+        }
+        /* 内容板块通用样式 */
+        .section {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        /* 教育背景/实习/项目样式 */
+        .education-item, .internship-item, .project-item {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 3px solid #3498db;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .item-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .item-date {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        .item-subtitle {
+            font-size: 16px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .item-content {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+        .item-content ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        /* 技能板块样式 */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .skill-tag {
+            background-color: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+        }
+        /* 自我评价样式 */
+        .self-intro {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+        /* 中英文切换核心：仅通过.hide类控制隐藏，删除.en-content的默认隐藏 */
+        .hide {
+            display: none !important; /* 加!important确保优先级，避免样式冲突 */
+        }
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .nav-container, .profile-section, .section {
+                width: 90%;
+            }
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+        }
+        @media (max-width: 576px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .button-group {
+                width: 100%;
+                justify-content: center;
+            }
+            .item-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+            .profile-info h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏：给所有en-content初始加hide类 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links cn-content">
+                <a href="#profile">个人信息</a>
+                <a href="#education">教育背景</a>
+                <a href="#internship">实习经历</a>
+                <a href="#project">项目经历</a>
+                <a href="#skills">技能特长</a>
+                <a href="#self-intro">自我评价</a>
+            </div>
+            <div class="nav-links en-content hide"> <!-- 初始隐藏英文导航 -->
+                <a href="#profile">Profile</a>
+                <a href="#education">Education</a>
+                <a href="#internship">Internship</a>
+                <a href="#project">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#self-intro">Self-Introduction</a>
+            </div>
+            <div class="button-group">
+                <a href="刘润林_南洋理工大学_商业分析.pdf" class="download-btn cn-content" download>下载简历</a>
+                <a href="MSBA_LIURUNLIN.pdf" class="download-btn en-content hide" download>Download Resume</a>
+                <button class="lang-switch" onclick="toggleLanguage()">切换英文</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 个人信息：英文内容初始加hide -->
+    <section id="profile" class="profile-section">
+        <img src="./avatar.jpg" alt="刘润林头像" class="avatar" onerror="this.src='https://placehold.co/160x160/3498db/ffffff?text=RL Liu'">
+        <div class="profile-info">
+            <div class="cn-content">
+                <h1>刘润林</h1>
+                <div class="job-title">求职意向：数据分析师</div>
+                <ul class="contact-list">
+                    <li><strong>电话：</strong>17327790910 / (+65) 89651786</li>
+                    <li><strong>邮箱：</strong><a href="mailto:liurunlin0818@outlook.com">liurunlin0818@outlook.com</a> / <a href="mailto:liur0039@e.ntu.edu.sg">liur0039@e.ntu.edu.sg</a></li>
+                    <li><strong>LinkedIn：</strong><a href="https://www.linkedin.com/in/runlin-liu-21786b377" target="_blank">linkedin.com/in/runlin-liu-21786b377</a></li>
+                    <li><strong>语言能力：</strong>中文（母语）、英语（商务级）、德语（商务级）</li>
+                </ul>
+            </div>
+            <div class="en-content hide"> <!-- 初始隐藏英文信息 -->
+                <h1>LIU, Runlin</h1>
+                <div class="job-title">Job Objective: Data Analyst</div>
+                <ul class="contact-list">
+                    <li><strong>Mobile：</strong>(+65) 89651786 / (+86) 17327790910</li>
+                    <li><strong>Email：</strong><a href="mailto:liur0039@e.ntu.edu.sg">liur0039@e.ntu.edu.sg</a> / <a href="mailto:liurunlin0818@outlook.com">liurunlin0818@outlook.com</a></li>
+                    <li><strong>LinkedIn：</strong><a href="https://www.linkedin.com/in/runlin-liu-21786b377" target="_blank">linkedin.com/in/runlin-liu-21786b377</a></li>
+                    <li><strong>Languages：</strong>Mandarin (Native), English (Business), German (Business)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育背景：英文内容初始加hide -->
+    <section id="education" class="section">
+        <h2 class="section-title cn-content">教育背景</h2>
+        <h2 class="section-title en-content hide">Education Background</h2>
+
+        <div class="education-item cn-content">
+            <div class="item-header">
+                <div class="item-title">南洋理工大学 | 商业分析硕士</div>
+                <div class="item-date">2025.07 - 2026.06（预计）</div>
+            </div>
+            <div class="item-content">核心课程：数据管理与可视化、商业分析与机器学习、战略分析、应用统计、程序设计</div>
+        </div>
+        <div class="education-item en-content hide">
+            <div class="item-header">
+                <div class="item-title">Nanyang Technological University | MSc in Business Analytics</div>
+                <div class="item-date">2025.07 - 2026.06 (Expected)</div>
+            </div>
+            <div class="item-content">Core Courses: Data Management & Visualization, Business Analytics & Machine Learning, Strategic Analysis, Applied Statistics, Programming</div>
+        </div>
+
+        <div class="education-item cn-content">
+            <div class="item-header">
+                <div class="item-title">南京大学 | 金融学本科 / 德语本科</div>
+                <div class="item-date">2021.09 - 2025.06</div>
+            </div>
+            <div class="item-subtitle">GPA：4.45/5.0</div>
+            <div class="item-content">
+                核心课程：数据挖掘与最优化、Python程序设计、金融工程学、统计学、跨学科跨文化大数据挖掘理论及应用研究、机器学习与金融数据分析、机器学习导论、神经网络、数据可视化、计量经济学
+            </div>
+        </div>
+        <div class="education-item en-content hide">
+            <div class="item-header">
+                <div class="item-title">Nanjing University | Bachelor of Economics (Finance) / Bachelor of Arts (German)</div>
+                <div class="item-date">2021.09 - 2025.06</div>
+            </div>
+            <div class="item-subtitle">GPA：4.45/5.0</div>
+            <div class="item-content">
+                Core Courses: Data Mining & Optimization, Python Programming, Financial Engineering, Statistics, Interdisciplinary & Cross-Cultural Big Data Mining Theory, Machine Learning & Financial Data Analysis, Introduction to Machine Learning, Neural Networks, Data Visualization, Econometrics
+            </div>
+        </div>
+    </section>
+
+    <!-- 实习经历：英文内容初始加hide -->
+    <section id="internship" class="section">
+        <h2 class="section-title cn-content">实习经历</h2>
+        <h2 class="section-title en-content hide">Internship Experience</h2>
+
+        <!-- 东吴证券 - 中文显示，英文隐藏 -->
+        <div class="internship-item cn-content">
+            <div class="item-header">
+                <div class="item-title">东吴证券股份有限公司 | 汽车行业研究组 | 汽车行业分析师</div>
+                <div class="item-date">2024.06 - 2024.09</div>
+            </div>
+            <div class="item-content">
+                <ul>
+                    <li>撰写乘用车出海复盘系列深度报告，通过Tableau可视化及面板固定效应回归量化本地化生产、研发投入对市场份额的影响，发现本地化生产比率超30%后边际效益显著提升，支撑数家出海龙头车企“买入”评级。</li>
+                    <li>维护国内车企产销数据库，通过多源交叉验证与跨表公式提升数据准确率25%；开发VBA自动化脚本实现Excel到Word周报一键填充，并撰写标准化教程赋能团队。</li>
+                    <li>牵头设计中国品牌出海对标价格数据库，构建五表关联结构（覆盖200+车型、10+国家），设计匹配算法计算品牌溢价率，成为团队海外市场分析核心基础设施。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="internship-item en-content hide">
+            <div class="item-header">
+                <div class="item-title">Soochow Securities, Shanghai | Vehicle Industry Research Group | Vehicle Industry Analyst</div>
+                <div class="item-date">2024.06 - 2024.09</div>
+            </div>
+            <div class="item-content">
+                <ul>
+                    <li>Authored in-depth reports on passenger vehicle exports; used Tableau for visualization and panel fixed-effects regression to quantify the impact of localized production/R&D investment on market share, finding marginal benefits surge when localization rate exceeds 30%, supporting "Buy" ratings for leading overseas-expanding automakers.</li>
+                    <li>Maintained domestic automakers' production/sales database, improved data accuracy by 25% via multi-source cross-validation; developed VBA scripts for one-click Excel-to-Word weekly report data transfer and created standardized tutorials for the team.</li>
+                    <li>Led the design of a benchmark price database for Chinese auto brands overseas, built a 5-table structure (covering 200+ models in 10+ countries), and designed a matching algorithm to calculate brand premium rates, becoming the core infrastructure for overseas market analysis.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 上海君犀投资 - 中文显示，英文隐藏 -->
+        <div class="internship-item cn-content">
+            <div class="item-header">
+                <div class="item-title">上海君犀投资管理有限公司 | 投研部 | 数据分析师</div>
+                <div class="item-date">2024.01 - 2024.04</div>
+            </div>
+            <div class="item-content">
+                <ul>
+                    <li>优化卖方研报智能解析系统，通过Python编写正则表达式抽取盈利预测、目标价等关键指标，每周处理300+篇研报，提升研究员信息获取效率50%。</li>
+                    <li>构建上市公司公告自动化处理系统，通过Wind接口获取公告，调用FinBERT分类为8类并每日推送，支持事件驱动投资研究。</li>
+                    <li>爬取投资平台评论数据，基于情绪极性、强度、传播度构建多维情绪指数，探索其与股价波动关联，支撑消费行业股票短期口碑回暖观点。</li>
+                    <li>梳理1997年以来中国金融体系演进，覆盖95%+政策节点，划分5个关键阶段并构建宏观政策分析框架，支撑3篇团队研究报告。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="internship-item en-content hide">
+            <div class="item-header">
+                <div class="item-title">Shanghai Jun-xi Investment Management | Research & Investment Dept. | Data Analyst</div>
+                <div class="item-date">2024.01 - 2024.04</div>
+            </div>
+            <div class="item-content">
+                <ul>
+                    <li>Optimized the sell-side research report intelligent analysis system; used Python regex to extract key indicators (earnings forecasts, target prices), processing 300+ reports weekly and improving researchers' information efficiency by 50%.</li>
+                    <li>Built an automated processing system for listed company announcements; retrieved announcements via Wind API, classified into 8 categories using FinBERT, and pushed daily summaries to support event-driven investment research.</li>
+                    <li>Scraped investment platform comment data, built a multi-dimensional sentiment index based on polarity/intensity/dissemination, explored its correlation with stock price fluctuations, and supported the view of short-term reputation recovery for consumer stocks.</li>
+                    <li>Organized China's financial system evolution since 1997 (covering 95%+ policy milestones), divided 5 key stages, and built a macro-policy analysis framework, supporting 3 team research reports.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 东方证券 - 中文显示，英文隐藏 -->
+        <div class="internship-item cn-content">
+            <div class="item-header">
+                <div class="item-title">东方证券股份有限公司 | 宏观与战略研究组 | 宏观经济研究员</div>
+                <div class="item-date">2023.09 - 2024.01</div>
+            </div>
+            <div class="item-content">
+                <ul>
+                    <li>跟踪30+省级及10+主要经济体领导人动态，每周筛选15+高价值洞察，提升团队策略解读效率20%；结合RAND等智库文章，5个月提炼80+核心观点支撑策略简报。</li>
+                    <li>参与高频先行指数设计，整合4大维度12类高频数据，将宏观监测周期从季度压缩至周度；通过MySQL清洗数据，基于PMI/GDP滚动相关性调整权重。</li>
+                    <li>回测2018-2023年数据验证指数有效性，识别12次经济拐点，与官方PMI/GDP匹配9次（准确率75%），成果升级为团队核心材料并被多次引用。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="internship-item en-content hide">
+            <div class="item-header">
+                <div class="item-title">Orient Securities, Shanghai | Macro & Strategy Research Group | Macro Economic Researcher</div>
+                <div class="item-date">2023.09 - 2024.01</div>
+            </div>
+            <div class="item-content">
+                <ul>
+                    <li>Tracked 30+ provincial and 10+ major economy leaders' movements, selected 15+ high-value insights weekly, improving team strategy interpretation efficiency by 20%; extracted 80+ core views in 5 months (with RAND think tank articles) to support strategy briefings.</li>
+                    <li>Participated in designing high-frequency leading indicators, integrated 12 types of high-frequency data across 4 dimensions, reducing macro monitoring cycles from quarterly to weekly; cleaned data via MySQL and adjusted weights based on rolling correlations with PMI/GDP.</li>
+                    <li>Backtested 2018-2023 data to verify index effectiveness, identified 12 economic turning points (75% accuracy, 9 matched official PMI/GDP), and the results were upgraded to core team material and cited multiple times.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经历：英文内容初始加hide -->
+    <section id="project" class="section">
+        <h2 class="section-title cn-content">项目经历</h2>
+        <h2 class="section-title en-content hide">Project Experience</h2>
+
+        <div class="project-item cn-content">
+            <div class="item-header">
+                <div class="item-title">国家级大学生创新训练项目 | 南京大学 | 学院项目负责人</div>
+                <div class="item-date">2021.09 - 2023.11</div>
+            </div>
+            <div class="item-subtitle">项目成果：国家级优秀结项（全国前5%）、发表学术论文</div>
+            <div class="item-content">
+                <ul>
+                    <li>招募4人团队并设计研究架构，统筹40+份ESG报告与1000+篇多语种文本的采集清洗，构建文本挖掘、语义比对、销量关联分析的跨学科方法体系。</li>
+                    <li>运用LDA主题建模、文本向量化、余弦相似度等机器学习方法，分析中德车企ESG文本，量化环境、社会、治理维度的语义一致性与叙事差异。</li>
+                    <li>发表学术论文，提出中国车企出海“技术—责任”双主线传播策略，为国际化传播提供实证依据。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project-item en-content hide">
+            <div class="item-header">
+                <div class="item-title">National College Students' Innovative Entrepreneurial Training Program | Nanjing University | Project Leader</div>
+                <div class="item-date">2021.09 - 2023.11</div>
+            </div>
+            <div class="item-subtitle">Achievements: National-Level Outstanding Project (Top 5% Nationwide), Published Academic Paper</div>
+            <div class="item-content">
+                <ul>
+                    <li>Recruited a 4-person team and designed the research framework; coordinated collection/cleaning of 40+ ESG reports and 1000+ multilingual texts, building an interdisciplinary methodology system covering text mining, semantic comparison, and sales correlation analysis.</li>
+                    <li>Used machine learning methods (LDA topic modeling, text vectorization, cosine similarity) to analyze Sino-German automakers' ESG texts, quantifying semantic consistency and narrative differences in environmental, social, and governance dimensions.</li>
+                    <li>Published an academic paper, proposing a "technology-responsibility" dual-track communication strategy for Chinese automakers' overseas expansion, providing empirical basis for international communication.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能特长：英文内容初始加hide -->
+    <section id="skills" class="section">
+        <h2 class="section-title cn-content">技能特长</h2>
+        <h2 class="section-title en-content hide">Technical & Professional Skills</h2>
+
+        <div class="skills-container cn-content">
+            <div class="skill-tag">数据分析：Python、R、MySQL、Tableau</div>
+            <div class="skill-tag">机器学习：Text2Vec、LDA、RNN、FinBERT、ALBERT</div>
+            <div class="skill-tag">工具应用：Microsoft Packages、Wind、HTML、KNIME</div>
+            <div class="skill-tag">语言能力：中文（母语）、英语（商务级）、德语（商务级）</div>
+        </div>
+        <div class="skills-container en-content hide">
+            <div class="skill-tag">Data Analysis: Python, R, MySQL, Tableau</div>
+            <div class="skill-tag">Machine Learning: Text2Vec、LDA、RNN、FinBERT、ALBERT</div>
+            <div class="skill-tag">Tools: Microsoft Packages、Wind、HTML、KNIME</div>
+            <div class="skill-tag">Languages: Mandarin (Native), English (Business), German (Business)</div>
+        </div>
+    </section>
+
+    <!-- 自我评价：英文内容初始加hide -->
+    <section id="self-intro" class="section">
+        <h2 class="section-title cn-content">自我评价</h2>
+        <h2 class="section-title en-content hide">Self-Introduction</h2>
+
+        <div class="self-intro cn-content">
+            <p>1. 具备扎实的数据分析技能，精通Python、R、SQL、Tableau等工具，参与跨语言文本分析项目处理超1000篇文本，灵活运用LDA、Word2Vec等算法量化语义差异；曾通过VBA和Python自动化流程，提升数据获取效率50%，支持高效建模与决策。</p>
+            <p style="margin-top: 15px;">2. 性格务实耐心，适应能力强，具备优秀的跨文化沟通与团队协调能力；曾领导4人团队完成国家级优秀大创项目，高效推动跨学科合作，在高压环境下可稳步推进多任务并实现成果落地。</p>
+            <p style="margin-top: 15px;">3. 拥有汽车、金融、宏观经济多领域数据分析实战经验，负责乘用车出海报告、宏观高频指数、情绪指数等核心项目，与数据分析师岗位高度匹配，可快速承担关键数据项目交付与业务支持。</p>
+        </div>
+        <div class="self-intro en-content hide">
+            <p>1. Solid data analysis skills, proficient in tools such as Python, R, SQL, and Tableau; participated in cross-lingual text analysis projects (processing over 1000 texts) and flexibly used algorithms like LDA and Word2Vec to quantify semantic differences; improved data acquisition efficiency by 50% via VBA/Python automation, supporting efficient modeling and decision-making.</p>
+            <p style="margin-top: 15px;">2. Pragmatic and patient personality, strong adaptability, and excellent cross-cultural communication/team coordination skills; led a 4-person team to complete a national-level outstanding innovation project, promoted interdisciplinary cooperation efficiently, and could steadily advance multi-tasks and deliver results under high pressure.</p>
+            <p style="margin-top: 15px;">3. Rich practical experience in data analysis across automotive, finance, and macroeconomics; responsible for core projects (passenger vehicle export reports, macro high-frequency indicators, sentiment indexes) highly aligned with data analyst roles, capable of quickly undertaking key data project delivery and business support.</p>
+        </div>
+    </section>
+
+    <script>
+        // 中英文切换功能：通过toggle('.hide')实现显示/隐藏
+        function toggleLanguage() {
+            const cnContents = document.querySelectorAll('.cn-content');
+            const enContents = document.querySelectorAll('.en-content');
+            const switchBtn = document.querySelector('.lang-switch');
+            
+            // 切换所有中英文内容的显示状态
+            cnContents.forEach(el => el.classList.toggle('hide'));
+            enContents.forEach(el => el.classList.toggle('hide'));
+            
+            // 更新按钮文本
+            if (switchBtn.textContent === '切换英文') {
+                switchBtn.textContent = 'Switch to Chinese';
+            } else {
+                switchBtn.textContent = '切换英文';
+            }
+        }
+
+        // 平滑滚动（导航栏点击跳转）
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
